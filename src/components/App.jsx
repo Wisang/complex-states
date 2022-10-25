@@ -2,15 +2,13 @@ import React from "react";
 import { useState } from "react";
 
 function App() {
-  const [fullName =
-    {
-      firstName: "",
-      lastName: ""
-    },
-    setFullName] = useState("");
+  const [fullName, setFullName] = useState({
+    firstName: "",
+    lastName: ""
+  });
 
   function handleFullName(e) {
-    const [value, name] = e.target;
+    const {value, name} = e.target;
 
     if (name === "fName") {
       setFullName(prevValue => {
@@ -33,8 +31,8 @@ function App() {
     <div className="container">
       <h1>Hello {fullName.firstName} {fullName.lastName}</h1>
       <form>
-        <input onChange={handleFullName} name="fName" placeholder="First Name" />
-        <input onChange={handleFullName} name="lName" placeholder="Last Name" />
+        <input onChange={handleFullName} name="fName" placeholder="First Name" value={fullName.firstName}/>
+        <input onChange={handleFullName} name="lName" placeholder="Last Name" value={fullName.lastName}/>
         <button>Submit</button>
       </form>
     </div>
